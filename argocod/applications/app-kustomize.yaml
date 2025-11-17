@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/veronez-dev/web-page-deploy.git
     targetRevision: HEAD
-    path: kustomize
+    path: applications/kustomize
   destination:
     namespace: conversao
     server: https://kubernetes.default.svc
