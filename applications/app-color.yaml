@@ -8,8 +8,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/ThiagoLange/web-page-deploy.git
-    path: k8s
+    repoURL: https://github.com/ThiagoLange/argocd-estudos.git
+    path: applications/webcolor
   destination:
     server: https://kubernetes.default.svc
     namespace: webcolor
