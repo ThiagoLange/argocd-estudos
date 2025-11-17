@@ -9,7 +9,10 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ThiagoLange/argocd-estudos.git
-    path: applications/webcolor
+    path: applications
+    targetRevision: HEAD
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: webcolor
