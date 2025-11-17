@@ -21,7 +21,7 @@ spec:
     releaseName: prometheus
     valueFiles:
       # Usamos a variável $values para referenciar a Source 2
-      - $values/workloads/prometheus-helm/values.yaml
+      - $values/argocd/workloads/prometheus-helm/values.yaml
   
   destination:
     namespace: monitoramento
