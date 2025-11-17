@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default 
+  sources:
+    # Source 1: O Chart Helm
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: prometheus
+      targetRevision: 25.30.1 # Versão do chart
+    # Source 2: Seus values.yaml customizados
+    - repoURL: https://github.com/ThiagoLange/argocd-estudos.git
+      targetRevision: HEAD
+      ref: values # Damos um nome 'values' para esta fonte
+  
+  helm:
+    releaseName: prometheus
+    valueFiles:
+      # Usamos a variável $values para referenciar a Source 2
+      - $values/workloads/prometheus-helm/values.yaml
+  
+  destination:
+    namespace: monitoramento
+    server: https://kubernetes.default.svc

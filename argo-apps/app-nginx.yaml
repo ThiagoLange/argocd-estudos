@@ -3,17 +3,14 @@ kind: Application
 metadata:
   name: nginx
   namespace: argocd
-  labels:
-    curso: gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     repoURL: https://github.com/ThiagoLange/argocd-estudos.git
-    path: applications/nginx
     targetRevision: HEAD
+    path: workloads/nginx # <--- Aponta para a pasta do workload
   destination:
     server: https://kubernetes.default.svc
     namespace: nginx
-  info:
-    - name: Projeto
-      value: "Curso Gitops"

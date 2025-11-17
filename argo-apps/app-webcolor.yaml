@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: webcolor
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     repoURL: https://github.com/ThiagoLange/argocd-estudos.git
-    path: argocod
     targetRevision: HEAD
-    #directory:
-    #  recurse: true
+    path: workloads/webcolor # <--- Aponta para a pasta do workload
   destination:
-    namespace: argocd
     server: https://kubernetes.default.svc
+    namespace: webcolor
