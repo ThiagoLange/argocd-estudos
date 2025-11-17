@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: app-gerenciador
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
     repoURL: https://github.com/ThiagoLange/argocd-estudos.git
     targetRevision: HEAD
-    path: argocd-estudos/argo-install/ # <--- Aponta para a pasta com o install.yaml
+    path: argo-apps # <--- Aponta para a pasta dos "filhos"
+    directory:
+      recurse: true # <--- ESSENCIAL: Manda o Argo ler tudo dentro de 'argo-apps/'
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
