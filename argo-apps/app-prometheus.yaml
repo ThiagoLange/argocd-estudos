@@ -15,6 +15,7 @@ spec:
     # Source 2: Seus values.yaml customizados
     - repoURL: https://github.com/ThiagoLange/argocd-estudos.git
       targetRevision: HEAD
+      path: argocd
       ref: values # Damos um nome 'values' para esta fonte
   
   helm:
