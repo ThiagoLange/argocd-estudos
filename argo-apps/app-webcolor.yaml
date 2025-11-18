@@ -11,6 +11,7 @@ spec:
     repoURL: https://github.com/ThiagoLange/argocd-estudos.git
     targetRevision: HEAD
     path: workloads/webcolor # <--- Aponta para a pasta do workload
+ #revisionHistoryLimit: 10
   destination:
     server: https://kubernetes.default.svc
     namespace: webcolor
@@ -18,3 +19,10 @@ spec:
   # automated:
    # prune: true
     # selfHeal: true
+  syncOptions:
+    - Validate=false
+    - CreateNamespace=true
+    - PrunePropagationPolicy=Foreground
+    - PruneLast=true
+    - RespectIgnoreDifferences=false
+    - ApplyOutOfSyncOnly=false
