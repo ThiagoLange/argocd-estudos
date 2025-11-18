@@ -19,9 +19,9 @@ spec:
   # automated:
    # prune: true
     # selfHeal: true
-  syncOptions:
+ #syncOptions:
   # - Validate=false
-    - CreateNamespace=true
+  # - CreateNamespace=true
   # - PrunePropagationPolicy=Foreground
   # - PruneLast=true
   # - RespectIgnoreDifferences=false
