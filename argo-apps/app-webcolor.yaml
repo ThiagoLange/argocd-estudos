@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: exemplo-project
   source:
     repoURL: https://github.com/ThiagoLange/argocd-estudos.git
     targetRevision: HEAD
